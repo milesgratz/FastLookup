@@ -98,10 +98,10 @@ See the PowerShell Gallery for the complete details and instructions.
 
 ### Manual Install
 
-Download [FastLookup.zip](https://github.com/milesgratz/FastLookup/releases/download/v1.0/FastLookup.zip) and extract the contents into `C:\Users\[User]\Documents\WindowsPowerShell\modules\FastLookup` (you may have to create these directories if they don't exist.)
+Download [FastLookup.zip](https://github.com/milesgratz/FastLookup/releases/download/v1.1/FastLookup.zip) and extract the contents into `C:\Users\[User]\Documents\WindowsPowerShell\modules\FastLookup` (you may have to create these directories if they don't exist.)
 
 ## Releases
-* [v1.0](https://github.com/milesgratz/FastLookup/releases/download/v1.0/FastLookup.zip)
+* [v1.1](https://github.com/milesgratz/FastLookup/releases/download/v1.1/FastLookup.zip)
 
 ## Contributors
 * [Miles Gratz](https://github.com/milesgratz)
