@@ -89,7 +89,7 @@ The larger the array, the more significant the performance increase from using F
 
 ## Install
 
-Download [FastLookup.zip](https://github.com/milesgratz/FastLookup/releases/download/v1.0/FastLookup.zip) and extract the contents into `C:\Users\[User]\Documents\WindowsPowerShell\modules\Stretch` (you may have to create these directories if they don't exist.)
+Download [FastLookup.zip](https://github.com/milesgratz/FastLookup/releases/download/v1.0/FastLookup.zip) and extract the contents into `C:\Users\[User]\Documents\WindowsPowerShell\modules\FastLookup` (you may have to create these directories if they don't exist.)
 
 ## Releases
 * [v1.0](https://github.com/milesgratz/FastLookup/releases/download/v1.0/FastLookup.zip)
