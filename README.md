@@ -33,7 +33,9 @@ The larger the array, the more significant the performance increase from using F
     Where-Object:   973ms
     FastLookup:     53ms
 
-## Example (1 Column Array)
+## Examples
+
+### 1 Column Array
 
     PS> $array = 1..1000000
     PS> $hashtable = New-FastLookup $array 
@@ -59,7 +61,7 @@ The larger the array, the more significant the performance increase from using F
         Milliseconds      : 65
 		
 		
-## Example (2+ Column Array)
+### 2+ Column Array
 
     PS> $array
 
@@ -88,6 +90,13 @@ The larger the array, the more significant the performance increase from using F
     Patch Window : Sunday        
 
 ## Install
+
+### PowerShell Gallery Install (Requires PowerShell v5)
+
+	Install-Module -Name FastLookup
+See the PowerShell Gallery for the complete details and instructions.
+
+### Manual Install
 
 Download [FastLookup.zip](https://github.com/milesgratz/FastLookup/releases/download/v1.0/FastLookup.zip) and extract the contents into `C:\Users\[User]\Documents\WindowsPowerShell\modules\FastLookup` (you may have to create these directories if they don't exist.)
 
