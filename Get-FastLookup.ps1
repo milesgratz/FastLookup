@@ -8,9 +8,9 @@
         Good for looking up results in very large arrays or CSV files (e.g Import-Csv) 
 
     .NOTES
-        Version:  1.0
+        Version:  1.1
         Author:   Miles Gratz
-        Creation Date:  April 10, 2017
+        Creation Date:  April 11, 2017
         Purpose/Change: Initial script development
 
     .PARAMETER Array
