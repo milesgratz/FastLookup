@@ -1,17 +1,17 @@
 ﻿function New-FastLookup {
     <#
     .SYNOPSIS
-        Lookup a value in an array faster than Where-Object
+        Designed to optimize the speed of searching an array.
 
     .DESCRIPTION
         Improve the speed of looking up a value in an array by creating a hashtable index.
-        Good for looking up results in very large arrays or CSV files (e.g Import-Csv)
+        Good for looping through very large arrays or CSV files
 
     .NOTES
-        Version:  1.1
+        Version:  1.2
         Author:   Miles Gratz
-        Creation Date:  April 11, 2017
-        Purpose/Change: Initial script development
+        Creation Date:  April 20, 2017
+        Purpose/Change: Improve examples
 
     .PARAMETER Array
         A mandatory parameter specifying input array used to create 'FastLookup'
@@ -23,33 +23,68 @@
         A hashtable, listing the values in the array and their corresponding index
     
     .EXAMPLE
+
+        PS>           
+    
+        $array = 1..1000000
+        $hashtable = New-FastLookup -Array $array
+        Get-FastLookup -Value 2017 -Array $array -Table $hashtable
+
+    .EXAMPLE
+
+        PS>
+
+        # Search for thousand random numbers in an array of one million
+
+        $array  = 1..1000000
+        $search = 1..1000 | ForEach-Object { 
+            Get-Random -Maximum $array.Count 
+        } 
+
+        ---------------------------------------------------------------
         
-        PS> $array = 1..10000000
-        PS> $hashtable = New-FastLookup $array
+        Where-Object Performance Test
 
-        PS> Measure-Command { 
-		    $array | Where-Object { $_ -eq 199999 } 
-	    }
+        Measure-Command { 
+            $array | Where-Object { $_ -in $search } 
+        }
 
-            Days              : 0
-            Hours             : 0
-            Minutes           : 0
-            Seconds           : 9
-            Milliseconds      : 306
+        Minutes           : 2
+        Seconds           : 39
+        Milliseconds      : 658
 
-        PS> Measure-Command { 
-		    Get-FastLookup -Value 199999 -Array $array -Table $hashtable 
-	    }
+        ---------------------------------------------------------------
 
-            Days              : 0
-            Hours             : 0
-            Minutes           : 0
-            Seconds           : 0
-            Milliseconds      : 65
+        ForEach Performance Test
 
-        [NOTE] Performance test on Windows 10 x64 (i5-6200U, 8GB RAM, SSD)
+        Measure-Command { 
+            foreach ($item in $array){ if ($item -in $search){ $item } } 
+        }
 
+        Minutes           : 1
+        Seconds           : 27
+        Milliseconds      : 460
+
+        ---------------------------------------------------------------
+
+        FastLookup Performance Test
+
+        Measure-Command {
+            $hashtable = New-FastLookup -Array $array        
+            foreach ($item in $search){ 
+                Get-FastLookup -Value $item -Array $array -Table $hashtable 
+            }
+        }
+
+        Minutes           : 0
+        Seconds           : 49
+        Milliseconds      : 933
+
+        ---------------------------------------------------------------
+
+        [NOTE] Performance test on Windows 10 x64 (i5-6200U/8GB/SSD)
     #>
+
     param(
         [Parameter(Mandatory=$true)]
         [array]$Array,
