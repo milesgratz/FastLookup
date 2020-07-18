@@ -111,4 +111,4 @@ Performance test on Windows 10 x64 (i5-6200U/8GB/SSD)
 * [Miles Gratz](https://github.com/milesgratz)
 
 ## Contact
-* Blog: [serveradventures.com](http://www.serveradventures.com)
+* Blog: <redacted due to my old blog domain has been parked by bad actors>
